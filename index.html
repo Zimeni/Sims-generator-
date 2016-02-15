@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Play:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="jquery-1.11.3.js"></script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+ 
+    <div class="container content-holder">
+       <h1>Генератор для Sims 3</h1>
+        <div class="row">
+               <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="info">
+                         <p>каждое свойство может быть изменено отдельно при нажатии на белое поле.</p>
+                         <p>! показывает, что можно изменить сразу целую секцию, нажав на лэйбл.</p>
+                    </div>
+                </div>    
+        </div>      
+       <div class="row">   
+           <div class="random-container">
+               <button>Сгенерировать</button>
+           </div>         
+            <div class="col-sm-12 col-md-12 col-lg-12 general-container block">
+                      <div class="row">
+                       <div class="col-sm-12 col-md-12  col-lg-12 general-content">
+                           <p class="headline"><span class="mark">!</span>Основное</p>
+                           <div class="row">
+                              <div class="col-sm-12 col-md-6  col-lg-6">
+                                  <p class="tag">Пол</p>
+                                   <p class="field" id="gender">female</p>
+                                   <p class="tag">Расса</p>
+                                   <p class="field" id="race">female</p>
+                              </div>
+                              <div class="col-sm-12 col-md-6  col-lg-6"> 
+                                   <p class="tag">Особенности</p>
+                                   <p class="field" id="special">female</p>
+                                   <p class="tag">Возраст</p>
+                                   <p class="field" id="age">female</p>
+                              </div>       
+                            </div>   
+                       </div>
+                   </div>                
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 personality-container block">
+               <div class="row">
+                   <div class="col-sm-12 col-md-12  col-lg-12 personality-content" >
+                     <p class="headline"><span class="mark">!</span>Личность</p>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 personality-left">
+                               <p class="tag changeAll"><span class="mark">!</span>Характер</p>
+                               <p class="field" id="character1">Прирождённый торговец</p>
+                               <p class="field" id="character2">Прирождённый артист</p>
+                               <p class="field" id="character3">Ненавидит искусство</p>
+                               <p class="field" id="character4">Компьютерный гений</p>
+                               <p class="field" id="character5">Гений</p>
+                               
+                               <p class="tag changeAll"><span class="mark">!</span>Пристрастия</p>
+                               <p class="field" id="likes1">female</p>
+                               <p class="field" id="likes2">female</p>
+                               <p class="field" id="likes3">female</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 personality-right">
+                               
+                               <p class="tag">Зодиак</p>
+                               <p class="field" id="zodiac">female</p>
+
+                               <p class="tag">Мечта</p>
+                               <p class="field" id="dream">Добиться максимального влияния во всех социальных группах</p>
+                            </div>
+                        </div>  
+                   </div>
+               </div>
+            </div>  
+            <div class="col-sm-12 col-md-12 col-lg-21 life-container block">
+                  <div class="row">
+                   <div class="col-sm-12 col-md-12  col-lg-12 life-content">
+                       <p class="headline"><span class="mark">!</span>Жизнь</p>
+                       <div class="row">
+                            <div class="col-sm-12 col-md-6  col-lg-6">
+                               <p class="tag bottom-space">Карьера</p>
+                               <p class="field" id="career">female</p>
+
+                               <p class="tag">Семейное положение</p>
+                               <p class="field" id="status">female</p>
+                           </div>
+                           <div class="col-sm-12 col-md-6  col-lg-6">
+                               <p class="tag">Количество детей</p>
+                               <p class="field" id="childrenNumber">female</p>
+
+                               <p class="tag">Количество питомцев</p>
+                               <p class="field" id="petNumber">female</p>
+                           </div>   
+                       </div>    
+                   </div>
+                </div>
+           </div>  
+            <div class="col-sm-12  col-md-12 col-lg-12 pets-container block">
+                  <div class="row">
+                   <div class="col-sm-12 col-md-12  col-lg-12 pets-content">
+                       <p class="headline"><span class="mark">!</span>Питомцы</p>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6  col-lg-6">    
+                          <p class="tag">Тип</p>
+                          <p class="field" id="petType">female</p>
+
+                           <p class="tag">Возраст</p>
+                           <p class="field" id="petAge">female</p>
+
+                           <p class="tag">Порода</p>
+                           <p class="field" id="petBreed">female</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6  col-lg-6">    
+                           <p class="tag">Характер</p>
+                           <p class="field" id="petCharacter1">female</p>
+                           <p class="field" id="petCharacter2">female</p>
+                           <p class="field" id="petCharacter3">female</p>
+                        </div>   
+                      </div>
+                   </div>
+                </div>
+           </div> 
+       </div>
+      
+    </div>
+
+</body>
+</html>                  
+                   
+                   
+                   
+                   
+                   
+                   
+                   <!---
+                    <div class="row general blocks">
+                     <div class="col-sm-12 col-md-12  col-lg-12">
+                          <p class="headline">Основное</p>
+                    </div>      
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                          <p class="tag">Пол</p>
+                           <p class="field gender" id="gender">female</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Расса</p>
+                           <p class="field race">female</p>
+                           </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Особенности</p>
+                           <p class="field special">female</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Возраст</p>
+                           <p class="field age">female</p>
+                       </div>        
+                    </div>
+                </div>
+                
+                <div class="containe">
+                    <div class="row personality  blocks">
+                        <div class="col-sm-12 col-md-12  col-lg-12">
+                          <p class="headline">Личность</p>
+                        </div>      
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                          <p class="tag">Характер</p>
+                           <p class="field character">Прирождённый торговец</p>
+                           <p class="field character">Прирождённый артист</p>
+                           <p class="field character">Ненавидит искусство</p>
+                           <p class="field character">Компьютерный гений</p>
+                           <p class="field character">Гений</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Пристрастия</p>
+                           <p class="field likes">female</p>
+                           <p class="field likes">female</p>
+                           <p class="field likes">female</p>
+                           </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Зодиак</p>
+                           <p class="field zodiac">female</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Мечта</p>
+                           <p class="field dream">Добиться максимального влияния во всех социальных группах</p>
+                       </div>        
+                    </div>
+                </div> 
+                
+                <div class="container">
+                    <div class="row life  blocks">
+                       <div class="col-sm-12 col-md-12  col-lg-12">
+                            <p class="headline">Жизнь</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6  col-lg-3">
+                            <p class="tag bottom-space">Карьера</p>
+                            <p class="field career">female</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Семейное положение</p>
+                           <p class="field status">female</p>
+                        </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Количество детей</p>
+                           <p class="field childrenNumber">female</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Количество питомцев</p>
+                           <p class="field petNumber">female</p>
+                       </div>   
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="row pets  blocks">
+                     <div class="col-sm-12 col-md-12  col-lg-12">
+                          <p class="headline">Питомцы</p>
+                    </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                          <p class="tag">Тип</p>
+                          <p class="field petType">female</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Возраст</p>
+                           <p class="field petAge">female</p>
+                           </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Порода</p>
+                           <p class="field petBreed">female</p>
+                       </div>
+                       <div class="col-sm-12 col-md-6  col-lg-3">
+                           <p class="tag">Характер</p>
+                           <p class="field petCharacter">female</p>
+                           <p class="field petCharacter">female</p>
+                           <p class="field petCharacter">female</p>
+                       </div>        
+                    </div>
+                </div>    
+            </div>   --->    
+            
+            

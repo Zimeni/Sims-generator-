@@ -1,0 +1,195 @@
+body{
+    background: #404040;
+    margin:0;
+    padding:0;
+    font-size:24px;
+    color:#112E70;
+    font-family: 'Roboto', sans-serif;
+    
+    min-width: 300px;
+    text-align: center;
+}
+
+.content-holder{
+    max-width:800px;
+    margin-top:20px;
+    margin-bottom: 50px;
+}
+
+h1{
+    color:white;
+    font-family: 'Play', sans-serif;
+    margin-bottom: 25px;
+}
+
+.info{
+    max-width:640px;
+    font-size:16px;
+    color:#404040;
+    text-align: center;
+    background: #C0C0C0;
+    padding:10px;
+    margin:0 auto;
+    border-radius: 5px;
+}
+
+.info p{
+    padding:10px 0;
+    margin:0;
+}
+
+.info p:first-child{
+    border-bottom: 1px dashed white;
+}
+
+.block{
+    border:2px solid #B1F785;
+    border-radius: 5px;
+    background: #92BC78;
+    margin:10px;
+    padding:15px;
+}
+
+.field{
+    font-size: 18px;
+    display: block;
+    background: white;
+    border-radius: 5px;
+    border:2px solid #B1F785;
+    padding:3px;
+}
+
+.field:hover{
+    background: #B0E2FD;
+    cursor:pointer;
+}
+
+.headline{
+    padding:5px;
+    margin:0 0 15px 0;
+    border-bottom:1px dashed white;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+
+.headline:hover{
+    cursor:pointer;
+    font-weight: 600;
+}
+
+.tag{
+    padding:10px 5px 5px 5px;
+    margin:0; 
+    font-weight: 400;
+    font-style: italic;
+}
+
+.changeAll:hover{
+    cursor:pointer;
+    font-weight: 600;
+}
+
+
+.mark{
+    display:inline-block;
+    background: #92BC78;
+    font-weight:300;
+    padding:0 5px 0 0;
+    margin:0;    
+    color:white;
+    font-weight: 600;
+}
+
+
+.random-container button{
+    background: #92BC78;
+    border-radius: 10px;
+    margin:20px 5px 15px 5px;
+    outline:none;
+    border-color:#B1F785;
+    font-size:20px;
+    font-weight: 600;
+}
+
+/*
+.content{    
+    text-align:center;
+}
+
+
+.blocks{
+    margin:10px 0 20px 0;
+    padding:15px 5px;
+    background: #77AA5B;
+    border:1px solid black;
+    
+   
+}
+
+.blocks div{
+    margin:0;
+    
+}
+
+.headline{
+    border-bottom:1px dashed black;
+    padding:15px;
+}
+
+
+input{
+    position:relative;
+    border:none;
+    outline:none;
+    min-width:100px;
+    max-width:160px;
+    margin:5px 5px 5px 34px;
+    padding:5px;
+    
+}
+
+input::before{
+    content:"";
+    position:absolute;
+    display:block;
+    top:0;
+    left:0;
+    width:15px;
+    height:15px;
+    background: green;
+}
+
+.tag{
+    display:block;
+    padding:10px;
+    margin:0 0 0 34px;
+   
+}
+
+.bottom-space{
+    padding-top:54px;
+}
+
+.field{
+    position:relative;
+    display: block;
+    padding:5px;
+    background: white;
+    margin:5px 5px 5px 34px;
+}
+
+.field::before{
+    content:"";
+    position:absolute;
+    display:block;
+    top:6px;
+    left:-35px;
+    width:32px;
+    height:32px;
+    background: url("dice17.png");
+}
+
+.field::before::hover{
+    cursor:pointer;
+}*/
