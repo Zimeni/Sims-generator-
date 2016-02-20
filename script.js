@@ -1,12 +1,11 @@
-$(document).ready(function(){  
-    function init(){
-        // General fields
+$(document).ready(function(){ 
+    // General fields
         var gender = ["male", "female"];
         var race = ["race 1", "race 2", "race 3", "race 4",];
         var raceSpecial = ["raceSpecial 1", "raceSpecial 2", "raceSpecial 3",];
         var age = ["age 1", "age 2", "age 3"];
         //Personality fields
-        var character = ["character 1", "character 2", "character 3", "character 4",];
+        var character = ["character 1", "character 2", "character 3", "character 4", "character 5", "character 6",];
         var favourites = ["favourites 1", "favourites 2", "favourites 3", "favourites 4",];
         var zodiac = ["zodiac 1", "zodiac 2", "zodiac 3", "zodiac 4",];
         var dream = ["dream 1", "dream 2", "dream 3", "dream 4",];
@@ -20,6 +19,8 @@ $(document).ready(function(){
         var petAge = ["age 1", "age 2", "age 3"];
         var petBreed = ["breed 1", "breed 2", "breed 3",];
         var petCharacter = ["character 1", "character 2", "character 3", "character 4",];
+    function init(){
+        
         
         // special vars:
         var raceNum;
@@ -50,22 +51,23 @@ $(document).ready(function(){
                 break;
             case "age": random = generate(6);
                 break;
-            case "character1": random = generate(95);
+            //Personality fields:    
+            case "character1": random = generate(6); // 95 actually
                 break;
-            case "character2": random = generate(95);
+            case "character2": random = generate(6);
                 break;
-            case "character3": random = generate(95);
+            case "character3": random = generate(6);
                 break;
             case "character4": random = generate(156);
                 break;
             case "character5": random = generate(156);
                 break;
-            case "likes1": random = generate (20); // Color
-                break;
-            case "likes2": random = generate (53); // Food: Ламинария jast for mermaids, 1 положительная - for vampires
-                break;
-            case "likes3": random = generate (28); // Music
-                break;
+            case "likeFood": random = generate(30);
+                break;        
+            case "likeMusic": random = generate(30);
+                break;        
+            case "likeColor": random = generate(30);
+                break;          
             case "zodiac": random = generate(12);
                 break;
             case "dream": random = generate();
@@ -90,16 +92,21 @@ $(document).ready(function(){
                 break;
             case "petCharacter3": random = generate(30);
                 break;
-            //Personality fields:    
             //Sections:
             case "general": setGeneralSection(4); // set data for 4 fields in General section
                 break;   
-            case "personality": random = generate(30);
+            case "personality": random = generate(10); 
                 break;    
                 
             default: console.log("Error in setRandomParam()->switch ");
         }
-        setGeneralField(elementId, random);
+        if(elementId.indexOf("character")>0){
+            setPersonalityField(elementId, random);
+        }
+        else{
+           setGeneralField(elementId, random); 
+        }
+        
         console.log(element.target.id + " " + random);
     };
     
@@ -252,8 +259,22 @@ $(document).ready(function(){
     ***************************
     */
     
-    setPersonalityField(elementId, random){
-        
+    function setPersonalityField(elementId, random){
+        if(elementId==="character1"){
+            document.getElementById("character1").innerHTML = character[random-1];
+        }
+        else if (elementId==="character2"){
+             document.getElementById("character2").innerHTML = character[random-1];
+        }
+        else if (elementId==="character3"){
+             document.getElementById("character3").innerHTML = character[random-1];
+        }
+        else if (elementId==="character4"){
+             document.getElementById("character4").innerHTML = character[random-1];
+        }
+        else if (elementId==="character5"){
+             document.getElementById("character5").innerHTML = character[random-1];
+        }
     }
     
     init();
