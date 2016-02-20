@@ -21,74 +21,218 @@ $(document).ready(function(){
         var petBreed = ["breed 1", "breed 2", "breed 3",];
         var petCharacter = ["character 1", "character 2", "character 3", "character 4",];
         
+        // special vars:
+        var raceNum;
+        
+       
         var inputFields = document.getElementsByClassName('field');
         for(var i=0;i<inputFields.length;i++){
-            inputFields[i].addEventListener("click", generate);
+            inputFields[i].addEventListener("click", setRandomParam);
+        }
+        
+        var sections = document.getElementsByClassName('section');
+        for(var i=0;i<sections.length;i++){
+            sections[i].addEventListener("click", setRandomParam);
         }
     };
     
-    function generate(element){
+    function setRandomParam(element){
+        var random;
         var elementId = element.target.id;
         switch(elementId){
-            case "gender":
+            // Fields:    
+            case "gender": random = generate(2);
                 break;
-            case "race":
+            case "race": random = raceNum = generate(7);
                 break;
-            case "special":
+            case "special": if(raceNum===3) random = generate(6); // for Fairy
+                            else if(raceNum===6) random = generate(15); // for Ghost
                 break;
-            case "age":
+            case "age": random = generate(6);
                 break;
-            case "character1":
+            case "character1": random = generate(95);
                 break;
-            case "character2":
+            case "character2": random = generate(95);
                 break;
-            case "character3":
+            case "character3": random = generate(95);
                 break;
-            case "character4":
+            case "character4": random = generate(156);
                 break;
-            case "character5":
+            case "character5": random = generate(156);
                 break;
-            case "likes1":
+            case "likes1": random = generate (20); // Color
                 break;
-            case "likes2":
+            case "likes2": random = generate (53); // Food: Ламинария jast for mermaids, 1 положительная - for vampires
                 break;
-            case "likes3":
+            case "likes3": random = generate (28); // Music
                 break;
-            case "zodiac":
+            case "zodiac": random = generate(12);
                 break;
-            case "dream":
+            case "dream": random = generate();
                 break;
-            case "career":
+            case "career": 
                 break;
-            case "status":
+            case "status": random = generate(); 
                 break;
-            case "childrenNumber":
+            case "childrenNumber": random = generate();
                 break;
-            case "petNumber":
+            case "petNumber": random = generate();
                 break;
-            case "petType":
+            case "petType": random = generate(7); // собаками, кошками, птицами, ящерицами, грызунами и змеями,  верховой лошадью.
                 break;
-            case "petAge":
+            case "petAge": random = generate();
                 break;
-            case "petBreed": console.log("jkjk");
+            case "petBreed": random = generate();
                 break;
-            case "petCharacter1":
+            case "petCharacter1": random = generate(30);
                 break;
-            case "petCharacter2":
+            case "petCharacter2": random = generate(30);
                 break;
-            case "petCharacter3":
+            case "petCharacter3": random = generate(30);
                 break;
-            default: console.log("Error in generate()->switch ");
+            //Sections:
+            case "general": setSection(4); // set data for 4 fields in General section
+                break;    
+                
+            default: console.log("Error in setRandomParam()->switch ");
         }
-        console.log(element.target.id);
+        setField(elementId, random);
+        console.log(element.target.id + " " + random);
+    };
+    
+    function generate(range){
+        return Math.floor(1+ Math.random() * range);
+        
+    };
+    
+    function setField(elementId, random){
+        if(elementId==="gender"){
+            if(random===1){
+                document.getElementById("gender").innerHTML = "Женский";
+            }
+            else {
+                document.getElementById("gender").innerHTML = "Мужской";
+            }        
+        }
+        else if(elementId==="race"){
+            if(random==1){
+                document.getElementById("race").innerHTML = "Человек";
+            }
+            else if(random==2){
+                document.getElementById("race").innerHTML = "Оборотень";
+            }
+            else if(random==3){
+                document.getElementById("race").innerHTML = "Фея";
+            }
+            else if(random==4){
+                document.getElementById("race").innerHTML = "Ведьма";
+            }
+            else if(random==5){
+                document.getElementById("race").innerHTML = "Вампир";
+            }
+            else if(random==6){
+                document.getElementById("race").innerHTML = "Призрак";
+            }
+            else if(random==7){
+                document.getElementById("race").innerHTML = "Джинн";
+            }       
+        }
+        else if(elementId==="special" && document.getElementById("race").innerHTML!=="-"){
+            if(document.getElementById("race").innerHTML === "Фея"){
+                switch(random){
+                    case 1: document.getElementById("special").innerHTML = "Ивовые прутья";
+                        break;
+                    case 2: document.getElementById("special").innerHTML = "Мечтательная стрекоза";
+                        break;
+                    case 3: document.getElementById("special").innerHTML = "Величественный монарх";
+                        break;
+                    case 4: document.getElementById("special").innerHTML = "Вихрь";
+                        break;
+                    case 5: document.getElementById("special").innerHTML = "Капризный папоротник";
+                        break;
+                    case 6: document.getElementById("special").innerHTML = "Работящий шмель";
+                        break;
+                }
+            }
+            else if(document.getElementById("race").innerHTML === "Призрак"){
+                switch(random){
+                    case 1: document.getElementById("special").innerHTML = "Старость";
+                        break;
+                    case 2: document.getElementById("special").innerHTML = "Утопление";
+                        break;
+                    case 3: document.getElementById("special").innerHTML = "Голод";
+                        break;
+                    case 4: document.getElementById("special").innerHTML = "Удар током";
+                        break;
+                    case 5: document.getElementById("special").innerHTML = "Пожар";
+                        break;
+                    case 6: document.getElementById("special").innerHTML = "Проклятие мумии";
+                        break;
+                    case 7: document.getElementById("special").innerHTML = "Метеорит";
+                        break;
+                    case 8: document.getElementById("special").innerHTML = "Гибель на море";
+                        break;
+                    case 9: document.getElementById("special").innerHTML = "Человек-статуя";
+                        break;
+                    case 10: document.getElementById("special").innerHTML = "Превращение";
+                        break;
+                    case 11: document.getElementById("special").innerHTML = "Спиритический сеанс";
+                        break;
+                    case 12: document.getElementById("special").innerHTML = "Смерть от мармеладки";
+                        break;
+                    case 13: document.getElementById("special").innerHTML = "Замерз до смерти";
+                        break;
+                    case 14: document.getElementById("special").innerHTML = "Смерть от удара тупым предметом";
+                        break;
+                    case 15: document.getElementById("special").innerHTML = "Смерть от разглагольствования";
+                        break;
+                }
+            }
+        }
+        else if(elementId==="age"){
+            switch(random){
+                case 1: document.getElementById("age").innerHTML = "Малыш";
+                    break;
+                case 2: document.getElementById("age").innerHTML = "Ребенок";
+                    break;
+                case 3: document.getElementById("age").innerHTML = "Подросток";
+                    break;
+                case 4: document.getElementById("age").innerHTML = "Молодой";
+                    break;
+                case 5: document.getElementById("age").innerHTML = "Взрослый";
+                    break;
+                case 6: document.getElementById("age").innerHTML = "Пожилой";
+                    break;
+            }
+        }
     }
     
-    
+    function setSection(fields){
+        var randomArr = [];
+        var fieldNameArr=[];
+        
+        randomArr[0] = generate(2); //gender
+        fieldNameArr[0] = "gender";
+        
+        randomArr[1] = generate(7); //race
+        fieldNameArr[1] = "race";
+        
+        if(randomArr[1]===3) randomArr[2] = generate(6); // for Fairy
+        else if(randomArr[1]===6) randomArr[2] = generate(15);// for Ghost
+        fieldNameArr[2] = "special";
+        
+        randomArr[3] = generate(6); //age
+        fieldNameArr[3] = "age";
+        
+        for(var i=0;i<fields;i++){
+            setField(fieldNameArr[i], randomArr[i]);
+        }
+    }
     
     
     init();
     
-    document.getElementById("gender").addEventListener("click", function(){
-        $(".gender").text("lala");
-    });
+    /*document.getElementById("gender").addEventListener("click", function(){
+       document.getElementById("gender").innerHTML = "lala";
+    });*/
 });
