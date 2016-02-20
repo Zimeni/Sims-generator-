@@ -40,7 +40,7 @@ $(document).ready(function(){
         var random;
         var elementId = element.target.id;
         switch(elementId){
-            // Fields:    
+            // General Fields:    
             case "gender": random = generate(2);
                 break;
             case "race": random = raceNum = generate(7);
@@ -90,13 +90,16 @@ $(document).ready(function(){
                 break;
             case "petCharacter3": random = generate(30);
                 break;
+            //Personality fields:    
             //Sections:
-            case "general": setSection(4); // set data for 4 fields in General section
+            case "general": setGeneralSection(4); // set data for 4 fields in General section
+                break;   
+            case "personality": random = generate(30);
                 break;    
                 
             default: console.log("Error in setRandomParam()->switch ");
         }
-        setField(elementId, random);
+        setGeneralField(elementId, random);
         console.log(element.target.id + " " + random);
     };
     
@@ -105,7 +108,11 @@ $(document).ready(function(){
         
     };
     
-    function setField(elementId, random){
+    /**************************
+    *******General section*****
+    ***************************
+    */
+    function setGeneralField(elementId, random){
         if(elementId==="gender"){
             if(random===1){
                 document.getElementById("gender").innerHTML = "Женский";
@@ -115,6 +122,10 @@ $(document).ready(function(){
             }        
         }
         else if(elementId==="race"){
+            if(random!==3 && random!==6){
+                document.getElementById("special").innerHTML = "-";
+            }
+            
             if(random==1){
                 document.getElementById("race").innerHTML = "Человек";
             }
@@ -123,6 +134,7 @@ $(document).ready(function(){
             }
             else if(random==3){
                 document.getElementById("race").innerHTML = "Фея";
+                setSpecialGeneralField(generate(6));
             }
             else if(random==4){
                 document.getElementById("race").innerHTML = "Ведьма";
@@ -132,12 +144,57 @@ $(document).ready(function(){
             }
             else if(random==6){
                 document.getElementById("race").innerHTML = "Призрак";
+                setSpecialGeneralField(generate(15));
             }
             else if(random==7){
                 document.getElementById("race").innerHTML = "Джинн";
-            }       
+            }
+            
         }
-        else if(elementId==="special" && document.getElementById("race").innerHTML!=="-"){
+        else if(elementId==="special" && document.getElementById("race").innerHTML!=="-"){ // Special fro Fairy and Ghost
+                setSpecialGeneralField(random);
+        }
+        else if(elementId==="age"){
+            switch(random){
+                case 1: document.getElementById("age").innerHTML = "Малыш";
+                    break;
+                case 2: document.getElementById("age").innerHTML = "Ребенок";
+                    break;
+                case 3: document.getElementById("age").innerHTML = "Подросток";
+                    break;
+                case 4: document.getElementById("age").innerHTML = "Молодой";
+                    break;
+                case 5: document.getElementById("age").innerHTML = "Взрослый";
+                    break;
+                case 6: document.getElementById("age").innerHTML = "Пожилой";
+                    break;
+            }
+        }
+    }
+    
+    function setGeneralSection(fields){
+        var randomArr = [];
+        var fieldNameArr=[];
+        
+        randomArr[0] = generate(2); //gender
+        fieldNameArr[0] = "gender";
+        
+        randomArr[1] = generate(7); //race
+        fieldNameArr[1] = "race";
+        
+        if(randomArr[1]===3) randomArr[2] = generate(6); // for Fairy
+        else if(randomArr[1]===6) randomArr[2] = generate(15);// for Ghost
+        fieldNameArr[2] = "special";
+        
+        randomArr[3] = generate(6); //age
+        fieldNameArr[3] = "age";
+        
+        for(var i=0;i<fields;i++){
+            setGeneralField(fieldNameArr[i], randomArr[i]);
+        }
+    }
+        
+    function setSpecialGeneralField(random){
             if(document.getElementById("race").innerHTML === "Фея"){
                 switch(random){
                     case 1: document.getElementById("special").innerHTML = "Ивовые прутья";
@@ -188,47 +245,16 @@ $(document).ready(function(){
                         break;
                 }
             }
-        }
-        else if(elementId==="age"){
-            switch(random){
-                case 1: document.getElementById("age").innerHTML = "Малыш";
-                    break;
-                case 2: document.getElementById("age").innerHTML = "Ребенок";
-                    break;
-                case 3: document.getElementById("age").innerHTML = "Подросток";
-                    break;
-                case 4: document.getElementById("age").innerHTML = "Молодой";
-                    break;
-                case 5: document.getElementById("age").innerHTML = "Взрослый";
-                    break;
-                case 6: document.getElementById("age").innerHTML = "Пожилой";
-                    break;
-            }
-        }
     }
     
-    function setSection(fields){
-        var randomArr = [];
-        var fieldNameArr=[];
-        
-        randomArr[0] = generate(2); //gender
-        fieldNameArr[0] = "gender";
-        
-        randomArr[1] = generate(7); //race
-        fieldNameArr[1] = "race";
-        
-        if(randomArr[1]===3) randomArr[2] = generate(6); // for Fairy
-        else if(randomArr[1]===6) randomArr[2] = generate(15);// for Ghost
-        fieldNameArr[2] = "special";
-        
-        randomArr[3] = generate(6); //age
-        fieldNameArr[3] = "age";
-        
-        for(var i=0;i<fields;i++){
-            setField(fieldNameArr[i], randomArr[i]);
-        }
-    }
+    /**************************
+    ****Personality section****
+    ***************************
+    */
     
+    setPersonalityField(elementId, random){
+        
+    }
     
     init();
     
